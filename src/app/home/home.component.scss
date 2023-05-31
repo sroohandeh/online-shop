@@ -24,3 +24,25 @@ li a:hover{
     cursor: pointer;
 }
 
+.content{
+    padding: .5rem 1rem;
+    position: relative;
+}
+
+.favorite{
+    position: absolute;
+    top: .5rem;
+    left: 1rem;
+    font-size: 1.2rem;
+    color: red;
+}
+
+.favorite.not{
+    color: grey;
+}
+
+.price{
+    color:#414141;
+    margin-top: 1rem;
+    text-align: left;
+}

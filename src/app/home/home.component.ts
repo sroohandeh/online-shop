@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArtService } from '../services/art.service';
+import {Art} from '../shared/art'
 
 @Component({
   selector: 'app-home',
@@ -7,12 +8,12 @@ import { ArtService } from '../services/art.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  artPics !: string[];
+  arts !: Art[];
 
   constructor(public artService: ArtService){    
   }  
   ngOnInit(): void {
-    this.artPics = this.artService.getAll();
+    this.arts = this.artService.getAll();
     
   }
 

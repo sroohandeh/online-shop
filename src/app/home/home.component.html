@@ -1,7 +1,13 @@
+<app-search></app-search>
 <ul>
-    <li *ngFor="let artPic of artPics">
+    <li *ngFor="let art of arts">
         <a>
-            <img src="{{artPic}}" alt="">
-        </a>        
+            <img src="{{art.imageUrl}}" alt="">            
+        </a>       
+        <div class="content">
+            <div class="name">{{art.name}}</div>
+            <div class="favorite {{art.favorite? '': 'not'}}">❤</div>
+            <div class="price">{{art.price | currency}}</div>
+        </div> 
     </li>
 </ul>
