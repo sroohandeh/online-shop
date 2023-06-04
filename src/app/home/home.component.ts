@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
+import { ActivatedRoute } from '@angular/router';
+import {Art} from '../shared/art';
 import { ArtService } from '../services/art.service';
-import {Art} from '../shared/art'
 
 @Component({
   selector: 'app-home',
@@ -10,10 +12,17 @@ import {Art} from '../shared/art'
 export class HomeComponent implements OnInit {
   arts !: Art[];
 
-  constructor(public artService: ArtService){    
+  constructor(public artService: ArtService, private route: ActivatedRoute){    
   }  
   ngOnInit(): void {
-    this.arts = this.artService.getAll();
+    this.route.params.subscribe(params => {
+      if(params['searchTerm']){
+        this.arts = this.artService.getAll().filter(art => art.name.toLowerCase().includes(params['searchTerm'].toLowerCase()));
+      }else{
+        this.arts = this.artService.getAll();
+      }
+    })
+   
     
   }
 
