@@ -6,5 +6,5 @@ export class Art{
     favorite:boolean = false;
     stars:number = 0;
     imageUrl!:string;
-    origins!:string[];    
+    origins!:string[];   
 }

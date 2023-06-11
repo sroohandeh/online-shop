@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
 import { Art } from '../shared/art';
+import { Injectable } from '@angular/core';
+import {Tag} from '../shared/tag';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,23 @@ import { Art } from '../shared/art';
 export class ArtService {
 
   constructor() { }
+
+  getAllArtsBySearchTerm(searchTerm:string) :Art[]{
+    return  this.getAll().filter(food =>
+      food.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  } 
+  getAllTags(): Tag[]{
+      return [
+        {name: 'همه', count: 3},
+        {name: 'خوش چهره', count: 2},
+        {name: 'پرفروش', count: 4 },
+        {name: 'معروف', count: 4 }
+      ]
+  }
+
+  getAllPicsByTag(tag: string): Art[]{
+    return tag == 'All'? this.getAll(): this.getAll().filter(art => art.tags?.includes(tag));
+  }
 
   getAll(): Art[] { 
     return [
@@ -18,7 +36,7 @@ export class ArtService {
         imageUrl : 'assets/images/face1.jpg',
         favorite: false,
         stars: 4,     
-        origins : []
+        origins : [],        
       },
       {
         id: 2,
@@ -27,7 +45,8 @@ export class ArtService {
         imageUrl : 'assets/images/face2.jpg',
         favorite: true,
         stars: 2,     
-        origins : []
+        origins : [],
+        tags: ['famous']
       },      
       {
         id: 4,
@@ -36,7 +55,8 @@ export class ArtService {
         imageUrl : 'assets/images/face4.jpg',
         favorite: false,
         stars: 2,     
-        origins : []
+        origins : [],
+        tags: ['معروف']
       }        
     ]
   }

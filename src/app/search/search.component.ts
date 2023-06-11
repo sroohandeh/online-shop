@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  searchTerm: string = '';
+  searchTerm: string = '';   
+ 
   constructor(private route: ActivatedRoute, private router: Router){
     
   }
