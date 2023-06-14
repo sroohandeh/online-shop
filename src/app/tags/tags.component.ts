@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { ArtService } from '../services/art.service';
 import {Tag} from '../shared/tag';
@@ -10,9 +10,16 @@ import {Tag} from '../shared/tag';
 })
 export class TagsComponent implements OnInit {
   tags: Tag[] = [];
+  @Input() artDetailTags?:string[];
+  
+  @Input() justifyContent:string = 'center';
+ 
   constructor(public artService: ArtService ){}
   ngOnInit(): void {
-    this.tags = this.artService.getAllTags();
+    if(!this.artDetailTags){
+      this.tags = this.artService.getAllTags();
+
+    }
   }
   
 

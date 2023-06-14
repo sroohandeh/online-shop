@@ -24,9 +24,6 @@ export class HomeComponent implements OnInit {
       else{
         this.arts = this.artService.getAll();
       }
-    })
-   
-    
+    })       
   }
-
 }

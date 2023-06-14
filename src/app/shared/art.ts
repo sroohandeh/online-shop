@@ -4,7 +4,7 @@ export class Art{
     price!:number;
     tags?:string[];
     favorite:boolean = false;
-    stars:number = 0;
+    stars?:number = 0;
     imageUrl!:string;
-    origins!:string[];   
+    origins?:string[];   
 }

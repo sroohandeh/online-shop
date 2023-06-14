@@ -16,14 +16,17 @@ export class ArtService {
   getAllTags(): Tag[]{
       return [
         {name: 'همه', count: 3},
-        {name: 'خوش چهره', count: 2},
-        {name: 'پرفروش', count: 4 },
-        {name: 'معروف', count: 4 }
+        {name: 'چهره', count: 2},
+        {name: 'پرفروش', count: 1 },
+        {name: 'معروف', count: 1 }
       ]
   }
 
+  getArtById(id: number): Art{
+    return this.getAll().find(art => art.id == id)!;
+  }
   getAllPicsByTag(tag: string): Art[]{
-    return tag == 'All'? this.getAll(): this.getAll().filter(art => art.tags?.includes(tag));
+    return tag == 'همه'? this.getAll(): this.getAll().filter(art => art.tags?.includes(tag));
   }
 
   getAll(): Art[] { 
@@ -31,12 +34,12 @@ export class ArtService {
       {
         id: 1,
         name: 'چهره مریم',
-        price: 4200000,
-        tags : ['پرفروش', 'خوش چهره'],
+        price: 4200000,       
         imageUrl : 'assets/images/face1.jpg',
         favorite: false,
         stars: 4,     
-        origins : [],        
+        origins : [], 
+        tags : ['پرفروش', 'چهره']         
       },
       {
         id: 2,
@@ -46,10 +49,10 @@ export class ArtService {
         favorite: true,
         stars: 2,     
         origins : [],
-        tags: ['famous']
+        tags: ['چهره']
       },      
       {
-        id: 4,
+        id: 3,
         name: 'چهره مهسا',
         price: 1550000,        
         imageUrl : 'assets/images/face4.jpg',
