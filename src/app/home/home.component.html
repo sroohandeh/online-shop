@@ -1,5 +1,6 @@
 <app-search></app-search>
 <app-tags></app-tags>
+<app-not-found [visible]="!arts || arts.length <= 0" resetLinkText="مجددا جستجو کنید..."></app-not-found>
 <ul>
     <li *ngFor="let art of arts">
         <a routerLink="/art/{{art.id}}">
