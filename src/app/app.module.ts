@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { SearchComponent } from './search/search.component';
 import { TagsComponent } from './tags/tags.component';
 import { ArtDetailComponent } from './art-detail/art-detail.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ArtDetailComponent } from './art-detail/art-detail.component';
     HomeComponent,
     SearchComponent,
     TagsComponent,
-    ArtDetailComponent
+    ArtDetailComponent,
+    CartPageComponent
   ],
   imports: [
     BrowserModule, 

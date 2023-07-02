@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Art } from '../shared/art';
 import { ArtService } from '../services/art.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-art-detail',
@@ -10,8 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArtDetailComponent implements OnInit {
 
-  art!: Art;
-  constructor(activatedRoute: ActivatedRoute, private artService: ArtService){
+  art!: Art;   
+  constructor(activatedRoute: ActivatedRoute, private artService: ArtService, private router: Router, private cartService: CartService){
     activatedRoute.params.subscribe(params =>{
       if(params['id']){
         this.art = this.artService.getArtById(params['id']);
@@ -22,4 +23,8 @@ export class ArtDetailComponent implements OnInit {
     
   }
 
+  addToCart(){
+    this.cartService.addToCart(this.art);
+    this.router.navigateByUrl('/cart-page');
+  }
 }

@@ -1,18 +1,18 @@
 <div class="container">
     <img [src]="art.imageUrl" alt="art.name">
-</div>
-<div class="details">
-    <div class="header">
-        <span class="name">
-            {{art.name}}
-        </span>
-        <span class="favorite {{art.favorite? '': 'not'}}">
-            ❤
-        </span>
-        <div class="tags">
-            <app-tags justifyContent="start" [artDetailTags]="art.tags"></app-tags>
-        </div> 
-        <div class="price">{{art.price | currency}}</div>         
-        <button>افزودن به سبد خرید</button>              
-    </div> 
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{art.name}}
+            </span>
+            <span class="favorite {{art.favorite? '': 'not'}}">
+                ❤
+            </span>
+        </div>
+            <div class="tags">
+                <app-tags justifyContent="start" [artDetailTags]="art.tags"></app-tags>
+            </div> 
+            <div class="price">{{art.price}}</div>         
+            <button (click)="addToCart()">افزودن به سبد خرید</button>                       
+    </div>
 </div>

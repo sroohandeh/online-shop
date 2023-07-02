@@ -3,17 +3,17 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 3rem;
+    margin: 3rem;    
 }
 
-.container *{
+.container > *{
     min-width: 25rem;
-    min-height: 40rem;
-}
+    max-width: 40rem;
+   }
 
 img{
     border-radius: 3rem;
-    flex: 1 0;
+    flex: 0 0;
     object-fit: cover;
     height: 25rem;
     margin: 1rem;
@@ -45,7 +45,7 @@ img{
 
 .details .favorite{
     color: red;
-    font-size: 2.5rem;
+    font-size: 2rem;
 
 }
 
@@ -56,27 +56,29 @@ img{
 
 .details .price {
     font-size: 1.8rem;
-    margin: 2rem 2rem 2rem 0;
+    margin: 2rem 0 2rem 0;
     color: green;
 
 }
 
-.details .price::before{
-    content: 'قیمت';
+.details .price::after{
+    font-size: 1rem;
+    content: 'تومان';
     color: darkgray;
 }
 
 .details button{
     color: white;
-    background-color: red;
+    background-color: #e60073;
     border: none;
     font-size: 1.2rem;
     padding: 1rem;
     border-radius: 10rem;
     outline: none;
+    margin-top: 2rem;
 }
 
 .details button:hover{
-    opacity: .9;
+    opacity: .7;
     cursor: pointer;
 }
